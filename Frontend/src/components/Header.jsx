@@ -49,7 +49,7 @@ export function Header() {
                             <button to="#" className=" text-black no-underline  " data-bs-toggle="dropdown"><i className="bi bi-person-fill text-xl text-black border dropdown-toggle p-2  rounded-pill "></i>
                             </button>
                             <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="#">T-Shirts</Link></li>
+                                <li><Link className="dropdown-item" to="/AdminLogin">Admin</Link></li>
                                 <li><Link className="dropdown-item" to="#">Women</Link></li>
                                 <li><Link className="dropdown-item" to="#">Men</Link></li>
                             </ul>
@@ -81,7 +81,7 @@ export function Header() {
                                     <button to="#" className=" text-black no-underline dropdown-toggle " data-bs-toggle="dropdown"><i className="bi bi-person-fill text-xl text-black border p-2  rounded-pill "></i>
                                     </button>
                                     <ul className="dropdown-menu">
-                                        <li><Link className="dropdown-item" to="#">T-Shirts</Link></li>
+                                        <li><Link className="dropdown-item" to="/AdminLogin">Admin</Link></li>
                                         <li><Link className="dropdown-item" to="#">Women</Link></li>
                                         <li><Link className="dropdown-item" to="#">Men</Link></li>
                                     </ul>
