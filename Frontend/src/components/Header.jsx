@@ -1,9 +1,23 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import '../App.css'
 
 export function Header() {
+    const [search, setSearch] = useState('')
+    // const [subSearch, setSubSearch] = useState()
     const [menuOpen, setMenuOpen] = useState(false)
+    const navigate = useNavigate()
+    function handleSearch(e) {
+        setSearch(e.target.value)
+    }
+    function handleSearchClick() {
+
+        if (search == '') {
+            alert('please enter value')
+            return
+        }
+        navigate(`/search/${search}`)
+    }
     return (
         <>
             <header className="flex justify-between items-center px-4 py-3   ">
@@ -23,7 +37,7 @@ export function Header() {
                 </div>
 
                 <ul className="flex items-center HeaderIcons mb-0">
-                    <li className="hidden lg:block"><Link to="#"><span className="bi bi-search  text-black  font-bold "></span></Link></li>
+                    <li className="hidden lg:block"><Link to="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><span className="bi bi-search  text-black  font-bold "></span></Link></li>
                     <li>
                         <Link to="#" className="flex items-center gap-1 text-black fw-bold">
                             <span>$0</span>
@@ -83,6 +97,29 @@ export function Header() {
                     </div>
                 )
             }
+
+            {
+                <div className="modal fade h-full text-dark bg-dark" id="exampleModal" >
+                    <div className="modal-dialog modal-fullscreen">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-center align-items-center flex-column ">
+                                <div className="fw-bold fs-4">Start typing and press enter to search</div>
+                                <div className="input-group  mt-4  SearchSize ">
+                                    <input type="text" placeholder='Search...' className="form-control " onChange={handleSearch} />
+                                    <button className="bi bi-search  btn btn-primary " onClick={handleSearchClick} data-bs-dismiss="modal"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
         </>
     )
 }
